@@ -29,6 +29,9 @@ const Navbar = () => {
                         <Link to="/">
                             <button className="cursor-pointer">Home</button>
                         </Link>
+                        <Link to="/search">
+                            <button className="cursor-pointer">Search</button>
+                        </Link>
                         <Link to="/profile">
                             <button className="cursor-pointer">Profile</button>
                         </Link>

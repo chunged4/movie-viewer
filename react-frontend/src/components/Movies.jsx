@@ -12,7 +12,7 @@ const Movies = ({ movie }) => {
     const [like, setLike] = useState(false);
 
     const { title, backdrop_path, poster_path } = movie;
-
+ 
     const { user } = UserAuth();
 
     const markFave = async () => {

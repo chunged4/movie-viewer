@@ -8,7 +8,6 @@ const Hero = () => {
 
     useEffect(() => {
         axios.get(endpoints.popular).then((response) => {
-            // console.log(response.data);
             const movies = response.data.results;
             const randomMovies =
                 movies[Math.floor(Math.random() * movies.length)];
