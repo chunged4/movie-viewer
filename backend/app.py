@@ -78,7 +78,7 @@ def get_recommendations(dataset):
     count = 0 
 
     for i in range(len(liked_movies)):
-        if i < len(sorted_indices):  # Add check to ensure index is within bounds
+        if i < len(sorted_indices):
             indices = sorted_indices[i]
             numeric_indices = [idx for idx in indices if isinstance(idx, (int, np.integer))]
             recommended_indices = [int(idx) for idx in numeric_indices if dataset[int(idx)]['id'] not in [movie['id'] for movie in liked_movies]]
