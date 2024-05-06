@@ -15,7 +15,7 @@ liked_movies = []
 
 # Function to fetch popular movies data from TMDB API
 def fetch_popular_data(page=1):
-    api_key = '1c9a5ca02cc79ba6c90e6af54ea849b6'
+    api_key = 'YOUR_API_KEY_HERE'
     url = f'https://api.themoviedb.org/3/movie/popular'
     params = {'api_key': api_key, 'page': page}
     response = requests.get(url, params=params)
