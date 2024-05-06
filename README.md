@@ -12,3 +12,13 @@ Clone the repository to your local machine using Git:
 
 ```bash
 git clone <repository_url>
+```
+
+### 2. Frontend Setup
+
+Naviagate to the frontend directory and install the required dependencies:
+
+```bash
+cd frontend
+npm install
+```
