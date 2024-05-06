@@ -25,4 +25,24 @@ npm install
 
 ### 3. Firebase Configuration
 
-Createa Firebase database and obtain the FirebaseSDK snippet. Paset the snippet into a file named `fiirebasejs` under this directory: `fronted/src/services`
+Create a Firebase database and obtain the FirebaseSDK snippet. Paset the snippet into a file named `fiirebase.js` under this directory: `frontend/src/services`
+
+### 4. TMDB API Configuration
+
+Create a `movies.js` file in the `services` folder. Include your TMDB API key and define the API endpoints as follows:
+```
+const endpoints = {
+    popular: `${baseURL}/movie/popular?api_key=${key}`,
+    topRated: `${baseURL}/movie/top_rated?api_key=${key}`,
+    trending: `${baseURL}/movie/popular?api_key=${key}&language=en-US&page=2`,
+    comedy: `${baseURL}/search/movie?api_key=${key}&language=en-US&query=comedy&page=1&include_adult=false`,
+    upcoming: `${baseURL}/movie/upcoming?api_key=${key}`,
+};
+
+export const createImageUrl = (filename, size) => {
+    return `https://image.tmdb.org/t/p/${size}/${filename}`;
+}
+
+export default endpoints;
+
+```
