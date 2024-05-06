@@ -46,7 +46,6 @@ export const createImageUrl = (filename, size) => {
 }
 
 export default endpoints;
-
 ```
 
 ### 5. Backend Setup
