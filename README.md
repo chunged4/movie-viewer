@@ -11,7 +11,7 @@ This project is a movie recommender system that utilizes the TMDB API. The front
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone <repository_url>
+git clone [<repository_url>](https://github.com/chunged4/movie-viewer.git)
 ```
 
 ### 2. Frontend Setup
