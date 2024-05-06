@@ -31,6 +31,7 @@ Create a Firebase database and obtain the FirebaseSDK snippet. Paset the snippet
 
 Create a `movies.js` file in the `services` folder. Include your TMDB API key and define the API endpoints as follows:
 ```
+const baseURL = "https://api.themoviedb.org/3";
 const endpoints = {
     popular: `${baseURL}/movie/popular?api_key=${key}`,
     topRated: `${baseURL}/movie/top_rated?api_key=${key}`,
