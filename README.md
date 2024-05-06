@@ -51,4 +51,37 @@ export default endpoints;
 
 ### 5. Backend Setup
 
-Navigate
+Navigate back to the backend directory and create a virtual environment named `venv`:
+
+```bash
+python -m venv venv
+```
+Activate the virtual environment:
+
+* Unix/MacOS:
+    ```bash
+    source venv/bin/activate
+    ```
+* Windows:
+    ```bash
+    vev/Scripts/activate
+    ```
+To deactive the environment, run `deactivate`.
+
+Install the required Python packages:
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 6. Running the application
+Open two separate terminals and execute the following commands:
+* Frontend:
+    ```bash
+    cd frontend
+    npm start
+    ```
+* Backend:
+    ```bash
+    cd backend
+    python app.py
+    ```
