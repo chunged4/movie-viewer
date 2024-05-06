@@ -11,7 +11,7 @@ This project is a movie recommender system that utilizes the TMDB API. The front
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone [<repository_url>](https://github.com/chunged4/movie-viewer.git)
+git clone https://github.com/chunged4/movie-viewer.git
 ```
 
 ### 2. Frontend Setup
@@ -22,3 +22,7 @@ Naviagate to the frontend directory and install the required dependencies:
 cd frontend
 npm install
 ```
+
+### 3. Firebase Configuration
+
+Createa Firebase database and obtain the FirebaseSDK snippet. Paset the snippet into a file named `fiirebasejs` under this directory: `fronted/src/services`
