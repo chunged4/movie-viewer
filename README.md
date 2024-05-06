@@ -29,7 +29,7 @@ Create a Firebase database and obtain the FirebaseSDK snippet. Paset the snippet
 
 ### 4. TMDB API Configuration
 
-Create a `movies.js` file in the `services` folder. Include your TMDB API key and define the API endpoints as follows:
+Create a `movies.js` file in the `services` folder. Include your [TMDB API key](https://www.themoviedb.org/documentation/api) and define the API endpoints as follows:
 
 ```
 const baseURL = "https://api.themoviedb.org/3";
