@@ -47,6 +47,7 @@ export const createImageUrl = (filename, size) => {
 
 export default endpoints;
 ```
+Replace `YOUR_API_KEY_HERE` in app.py with your TMDB API key.
 
 ### 5. Backend Setup
 
