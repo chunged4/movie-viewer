@@ -82,5 +82,5 @@ Open two separate terminals and execute the following commands:
 * Backend:
     ```bash
     cd backend
-    python app.py
+    flask run
     ```
