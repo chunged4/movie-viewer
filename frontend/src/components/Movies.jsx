@@ -1,7 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-import { arrayRemove, arrayUnion, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import {
+    arrayRemove,
+    arrayUnion,
+    doc,
+    updateDoc,
+    onSnapshot,
+} from "firebase/firestore";
 import { db } from "../services/firebase";
 
 import { UserAuth } from "../context/AuthContext";
@@ -29,7 +35,7 @@ const Movies = ({ movie }) => {
                     }
                 });
             } else {
-                setLikedMovies([]); // Clear liked movies when user is not authenticated
+                setLikedMovies([]);
             }
         };
         fetchMovies();
