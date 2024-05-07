@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { arrayRemove, arrayUnion, doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../services/firebase";
 
 import { UserAuth } from "../context/AuthContext";
@@ -17,6 +17,24 @@ const Movies = ({ movie }) => {
 
     const { title, backdrop_path, poster_path } = movie;
 
+    useEffect(() => {
+        const fetchMovies = async () => {
+            if (user) {
+                onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
+                    if (doc.data()) {
+                        const userData = doc.data();
+                        setLikedMovies(userData.faveShows ?? []);
+                    } else {
+                        setLikedMovies([]);
+                    }
+                });
+            } else {
+                setLikedMovies([]); // Clear liked movies when user is not authenticated
+            }
+        };
+        fetchMovies();
+    }, [user, setLikedMovies]);
+
     const markFave = async () => {
         const userEmail = user?.email;
 
@@ -27,35 +45,29 @@ const Movies = ({ movie }) => {
 
         const userDoc = doc(db, "users", userEmail);
 
-        // Check if the movie is already liked
         const isLiked = likedMovies.some(
             (likedMovie) => likedMovie.id === movie.id
         );
 
         try {
             if (isLiked) {
-                // If already liked, remove from favorites
                 await updateDoc(userDoc, {
                     faveShows: arrayRemove(movie),
                 });
-                // Update local state to remove the movie
                 setLikedMovies((prevLikedMovies) =>
                     prevLikedMovies.filter(
                         (likedMovie) => likedMovie.id !== movie.id
                     )
                 );
             } else {
-                // If not liked, add to favorites
                 await updateDoc(userDoc, {
                     faveShows: arrayUnion({ ...movie }),
                 });
-                // Update local state to add the movie
                 setLikedMovies((prevLikedMovies) => [
                     ...prevLikedMovies,
                     movie,
                 ]);
             }
-            // Toggle the like state
             setLike(!like);
         } catch (error) {
             console.error("Error updating liked movies:", error);
@@ -101,10 +113,7 @@ const MoviesWithContext = (props) => {
     );
 
     return (
-        <LikedMoviesContext.Provider
-            key={likedMovies.length}
-            value={{ likedMovies, setLikedMovies }}
-        >
+        <LikedMoviesContext.Provider value={{ likedMovies, setLikedMovies }}>
             <Movies {...props} />
         </LikedMoviesContext.Provider>
     );
